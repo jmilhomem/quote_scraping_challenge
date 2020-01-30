@@ -8,22 +8,14 @@ import requests
 page = requests.get("http://quotes.toscrape.com/")
 soup = BeautifulSoup(page.content, "html.parser")
 
+html_data = soup.select(QuoteLocator().QUOTE_PAGE_LOCATOR)
 
-print("LOCATOR", QuoteLocator().QUOTE_PAGE_LOCATOR)
-#soup.select(quote_page_locator)
 
-TEST = soup.select(QuoteLocator().QUOTE_PAGE_LOCATOR)
-#print("1.", TEST)
+"""Get data from each block of html."""
+for content_html in enumerate(html_data):
+    pos_data = content_html[0]
 
-TEST2 = quote_parser.Parser(TEST)
-print("2.", TEST2)
+    data_content = quote_parser.Parser(content_html[1])
+    pos_data = pos_data + 1
 
-"""
-# Get data from each block of html
-for content_html in soup.select(quote_page_locator.QUOTE_PAGE_LOCATOR):
-    # print(content_html)
-
-    quote_parser(content_html)
-
-print("******************************\n")
-"""
+    print(f"{pos_data} - {data_content}")
