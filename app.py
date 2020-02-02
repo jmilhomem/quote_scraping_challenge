@@ -1,5 +1,6 @@
 """App program."""
 from parsers import page_parser, quote_parser
+from log.app_logging import define_log
 
 
 def print_quotes(html_data):
@@ -13,6 +14,11 @@ def print_quotes(html_data):
         print(f"{pos_data} - {data_content}")
 
 if __name__ == "__main__":
+    log = define_log()
+    log.info("Execution Started.")
+
     page = page_parser.PageParser()
     html_data = page.get_quotes_page_html()
     print_quotes(html_data)
+
+    log.info("Execution Ended.")
