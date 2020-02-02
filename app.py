@@ -1,6 +1,6 @@
 """App program."""
 from parsers import page_parser, quote_parser
-from log.app_logging import define_log
+from utils.app_logging import define_log
 
 
 def print_quotes(html_data):
