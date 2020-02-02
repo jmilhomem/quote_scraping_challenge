@@ -13,5 +13,5 @@ all:
 		$(PIP) install -r requirements.txt
 
 run:
-		python main.py
+		python app.py
 
