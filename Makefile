@@ -1,3 +1,6 @@
+SHELL := /bin/bash
+.PHONY: docs clean
+
 VIRTUALENV_DIR=.env
 PYTHON=${VIRTUALENV_DIR}/bin/python
 PIP=${VIRTUALENV_DIR}/bin/pip
